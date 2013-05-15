@@ -31,6 +31,17 @@ Triangle.prototype.calcAreaTwice = function() {
   );  
 };
 
+Triangle.prototype.counterClockwise = function() {
+   return (           
+    (this.a.x - this.c.x)*(this.b.y - this.a.y) > 
+    (this.a.x - this.b.x)*(this.c.y - this.a.y) 
+  );     
+};
+
+Triangle.prototype.reverse = function() {
+    return new Triangle(this.c, this.b, this.a);   
+};
+
 Triangle.prototype.barycentricCoodinate = function(p) {
   var pab = new Triangle(p, this.a, this.b);   
   var pbc = new Triangle(p, this.b, this.c);   
